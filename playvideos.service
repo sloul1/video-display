@@ -1,0 +1,10 @@
+[Unit]
+Description=Play Videos Loop
+
+[Service]
+ExecStart=/bin/bash /home/ubuntu/videos-player.sh
+Restart=always
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
