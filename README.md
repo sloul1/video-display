@@ -21,10 +21,10 @@ Raspberry Pi OS Lite (Debian Linux 12).
 - [`27" Lenovo thinkVision T27h-30`](https://support.lenovo.com/us/en/solutions/pd500590-thinkvision-t27h-30-monitor-overview) display for viewing the videos
 
 ### Software  
-This system uses [`Raspberry Pi OS Lite (64-bit)`](https://www.raspberrypi.com/software/operating-systems/) as operating system. Bootable microSD for Raspi 4 is created with [`Raspberry Pi Imager`](https://www.raspberrypi.com/software/).  
+This system uses [`Raspberry Pi OS Lite (64-bit)`](https://www.raspberrypi.com/software/operating-systems/) as operating system. Bootable microSD for Raspi 4 is created with [`Raspberry Pi Imager`](https://www.raspberrypi.com/software/). 
 with [`VLC player`](https://www.videolan.org/vlc/) 
 
-Raspberry Pi OS version information:  
+#### Getting detailed information of Raspberry Pi OS  
 ```bash
 cat /etc/os-release
 ```
@@ -40,6 +40,19 @@ HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
 ```
+The `hostnamectl` command gives also plenty of information. This information can be filtered piping `hostnamectl` command with `àwk` as in example below.
+```bash
+hostnamectl | awk '
+/Operating System:/ {print}
+/Kernel:/ {print}
+/Architecture:/ {print}'
+```
+
+```bash
+Operating System: Debian GNU/Linux 12 (bookworm)
+          Kernel: Linux 6.12.34+rpt-rpi-v8
+    Architecture: arm64
+```
 
 ### Prepare operating system
 
@@ -49,7 +62,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 Install VLC player.
 ```bash
-sudo apt install vlc
+sudo apt install vlc -y
 ```
 
 
