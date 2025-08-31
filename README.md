@@ -6,7 +6,7 @@
 Table of Contents
 -----------------
   * [Objective](#objective)
-  * [Hardware used](#hardware)
+  * [Hardware specifics](#hardware)
   * [Software used](#software)  
   * [Steps](#steps)
   * [01 Install RPI-Imager](#1-run-01-install-rpi-imagersh-script-to-install-and-start-raspberry-pi-imager)
@@ -20,6 +20,8 @@ Automatic video display with SSH connection for configuration
 Goal of this project is to create easy to use ***(switch on / switch off)*** low (or no) maintenance system for viewing videos at exhibition.    
   
 This system is implemented on **`Raspberry Pi 4B (4 GB RAM)`** with **`Raspberry Pi OS Lite (Debian Linux 12)`** as operating system.  
+
+## Functionality
 
 1. Project **video-display** enables [`systemd service`](#create-a-service) (`playvideos.service`) when the device starts up.  
 2. This service points to a [`bash script`](#Bash-script-for-looping-videos) that uses  
@@ -50,13 +52,13 @@ If needed use `chmod` to make script executable and then run the script.
 `Operating System` -->  **Raspberry Pi OS (other) --> Raspberry Pi OS Lite (64-bit)**  
 `Storage` --> **Choose your storage device and click *Next***  
   
-![](images/03-raspimager-edit-custom-settings.png)  
+![](images/02-raspimager-edit-custom-settings.png)  
 
 #### 3. Edit OS customisation settings  
 
-   Choose `EDIT SETTINGS` --> `GENERAL` tab
+Choose `EDIT SETTINGS` --> `GENERAL` tab
    
-   ![alt text](images/04-raspimager-edit-custom-settings-general.png)
+![](images/03-raspimager-edit-custom-settings-general.png)  
 - `Set hostname` to your preference. In this example the default **raspberrypi**.local is used.
 - Also `Set username and password` to your preference.
 - In this example we `Configure wireless LAN` and set up network's name `SSID` and `Password`. This is a step for accessing this server remotely in configuration phase. Set up also `Wireless LAN country` to comply with deployment country's regulatory domain.
@@ -69,24 +71,24 @@ Go to `SERVICES` tab
 > [!CAUTION]  
 > For better security it is recommended to use the `Allow public-key authentication only` option but **as this device won't be connected to any network when in running mode** we will be using the `Use password authentication` option.  
 
-   ![alt text](images/05-raspimager-edit-custom-settings-services.png)
+![](images/04-raspimager-edit-custom-settings-services.png)
 
  On `OPTIONS`tab disable `Enable telemetery` and enable `Play sound when finished` and `Eject media when finished`.  
 
-![alt text](images/06-raspimager-edit-custom-settings-services-options.png)
+![](images/05-raspimager-edit-custom-settings-services-options.png)
 
 #### 4. Apply settings and create OS image on microSD card
-![alt text](images/07-raspimager-edit-custom-settings-apply.png)
+![](images/06-raspimager-edit-custom-settings-apply.png)
 
 Apply settings
 
-![alt text](images/08-raspimager-edit-custom-settings-create.png)  
+![](images/07-raspimager-edit-custom-settings-create.png)  
 Create OS image on microSD card
 
 > [!NOTE]
-> You might be asked for privileged user password at this point.
+> You might be asked for privileged user password at this point
 
-![alt text](images/10-raspimager-create-ready.png)
+![](images/08-raspimager-create-ready.png)
 After installer has verified a successfull write remove microsSD card safely using your operating system's dialog for this.
 
 For example in many Linux GUI distros this can be done by choosing microSD card in `Disks` software left pane and then pressing `Eject this disk` icon from up.
