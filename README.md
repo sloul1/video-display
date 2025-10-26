@@ -2,7 +2,10 @@
 > WIP = Work in progress! This warning will be removed after project's documentation is completed.
 
 # video-display
-
+  
+![Video display in use](images/display_in_use_small.jpg)  
+Video display in use.  
+  
 Table of Contents
 -----------------
   * [Objective](#objective)
